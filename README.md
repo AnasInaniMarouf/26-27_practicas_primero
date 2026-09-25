@@ -33,4 +33,4 @@ Desde una terminal ejecutar el siguiente comando que activa el contenedor con el
 ```docker compose -f docker-compose.yml up```  
 A partir de aquí se activará la depuración en visual basic y procedemos a depurar.   
 
-//--->Editado por Anas
+//Editado por Anas
