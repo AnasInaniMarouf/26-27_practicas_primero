@@ -16,7 +16,7 @@ function cabecera()
 function cuerpo()
 {
 ?>
-    <ul>
+    <ul class="menuOpciones">
         <li>
             <a href="ejercicio1.php">Ejercicio 1</a>
         </li>
@@ -38,6 +38,10 @@ function cuerpo()
         <li>
             <a href="ejercicio7.php">Ejercicio 7</a>
         </li>
+    </ul>
+    <ul class="barraUbicacion">
+        <li><a href="/index.php">Inicio</a></li>
+        <li><a href="/aplicacion/relacion1/index.php">Ejercicios</a></li>
     </ul>
 <?php
 }
