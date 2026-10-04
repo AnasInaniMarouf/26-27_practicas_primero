@@ -1,6 +1,7 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
 //controlador
+
 //dibuja la plantilla de la vista
 inicioCabecera("Ejercicio 1");
 cabecera();
