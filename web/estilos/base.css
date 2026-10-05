@@ -134,3 +134,11 @@ footer {
     padding: 1px;
     margin-right: 3px;
 }
+
+.contenidoPrincipal {
+    background-color: #E8F5E9;
+    padding: 1%;
+    font-size: large;
+    border: 2px solid #66BB6A;
+    border-radius: 10px;
+}

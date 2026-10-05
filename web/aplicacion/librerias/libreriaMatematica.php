@@ -1,6 +1,6 @@
 <?php
 
-function rendondeoRound($numero) {
+function redondeoRound($numero) {
     return round($numero);
 }
 

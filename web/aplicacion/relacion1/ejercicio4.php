@@ -17,6 +17,7 @@ function cuerpo()
 {
 ?>
     <ul class="barraUbicacion">
+        <li><a href="/index.php">Inicio</a></li>
         <li><a href="/aplicacion/relacion1/index.php">Ejercicios</a></li>
         <li><a href="#">Ejercicio 4</a></li>
     </ul>
