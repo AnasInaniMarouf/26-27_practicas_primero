@@ -1,10 +1,10 @@
 <?php
-function paginaError($mensaje)
+function paginaError(string $mensaje)
 {
     header("HTTP/1.0 404 $mensaje");
     inicioCabecera("PRACTICA 1");
     finCabecera();
-    inicioCuerpo("ERROR");
+    inicioCuerpo("ERROR", []);
     echo "<br />\n";
     echo $mensaje;
     echo "<br />\n";
@@ -13,7 +13,7 @@ function paginaError($mensaje)
     echo "<a href='/index.php'>Ir a la pagina principal</a>\n";
     finCuerpo();
 }
-function inicioCabecera($titulo)
+function inicioCabecera(string $titulo)
 {
 ?>
     <!DOCTYPE html>
@@ -43,38 +43,101 @@ function finCabecera()
     </head>
 <?php
 }
-function inicioCuerpo($cabecera)
+function inicioCuerpo(string $cabecera, array $ubicacion = [])
 {
     global $acceso;
+
 ?>
     <body>
         <div id="documento">
+
             <header>
                 <h1 id="titulo"><?php echo $cabecera; ?></h1>
             </header>
+
             <div id="barraLogin">
+
             </div>
             <div id="barraMenu">
                 <ul>
                     <li><a href="/index.php">Inicio</a></li>
+                    <li><a href="/aplicacion/pruebas/index.php">Ejemplos Basicos</a></li>
+
                 </ul>
+
             </div>
+            <div id="barraUbicacion">
+                <?php
+                echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+
+                if ($ubicacion) {
+
+                    foreach ($ubicacion as $elemento) {
+                        if (isset($elemento["ENLACE"])) {
+                            echo "<a href='{$elemento["ENLACE"]}' >";
+                        }
+                        
+                        echo $elemento["TEXTO"];
+
+                        if($elemento != end($ubicacion)) {
+                            echo " > ";
+                        }
+
+                        if (isset($elemento["ENLACE"])) {
+                            echo "</a>";
+                        }
+
+                        // if (isset($elemento["ADICIONAL"]))
+                        //     echo $elemento["ADICIONAL"];
+                        // else
+                        //     echo "&nbsp;&nbsp;";
+
+                        //otra solucion
+                        /*                                if (isset($elemento["ENLACE"]))
+                                    {
+                                        echo "<a href='{$elemento["ENLACE"]}' >";
+                                        echo $elemento["TEXTO"];
+                                        if (isset($elemento["ADICIONAL"]))
+                                            echo $elemento["ADICIONAL"];
+                                            else
+                                            echo "&nbsp;&nbsp;";
+                                        echo "</a>";
+                                    }
+                                    else
+                                    {
+                                        echo $elemento["TEXTO"];
+                                        if (isset($elemento["ADICIONAL"]))
+                                            echo $elemento["ADICIONAL"];
+                                            else
+                                            echo "&nbsp;&nbsp;";
+                                
+                                    }
+*/
+                    }
+                }
+
+
+                ?>
+            </div>
+
             <div>
-            <?php
-        }
-        function finCuerpo()
-        {
-            ?>
+<?php
+}
+
+function finCuerpo()
+{
+?>
+                <br />
+                <br />
             </div>
             <footer>
-                <hr width="90%" />
+                <hr width="90%"  />  
                 <div>
-                    &copy; Copyright by Anas
+                    &copy; Copyright  by Anas
                 </div>
             </footer>
         </div>
     </body>
-
-    </html>
+</html>
 <?php
-        }
+}

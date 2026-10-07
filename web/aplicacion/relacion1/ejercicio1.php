@@ -3,12 +3,24 @@ include_once(dirname(__FILE__) . "/../../cabecera.php");
 include_once(dirname(__FILE__) . "/../../aplicacion/librerias/libreriaMatematica.php");
 //require_once "/../../aplicacion/librerias/libreriaMatematica.php";
 //controlador
-
+$barra=[
+    [
+        "TEXTO"=> "Inicio",
+        "ENLACE" =>"/index.php"//, "ADICIONAL"=>">>"
+    ],
+    /*[ 
+        "TEXTO"=> "otro"   
+    ],*/  
+    [ 
+        "TEXTO"=> "Index"/*,
+        "ADICIONAL"=> "&copy;&copy;"*/
+    ]
+];
 //dibuja la plantilla de la vista
 inicioCabecera("Ejercicio 1");
 cabecera();
 finCabecera();
-inicioCuerpo("Ejercicio 1 - Funciones Matematicas");
+inicioCuerpo("Ejercicio 1 - Funciones Matematicas",);
 cuerpo(); //llamo a la vista
 finCuerpo();
 // **********************************************************
