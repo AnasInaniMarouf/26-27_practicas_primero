@@ -1,6 +1,22 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
 //controlador
+$barra=[
+    [
+        "TEXTO"=> "Inicio",
+        "ENLACE" =>"/index.php"//, "ADICIONAL"=>">>"
+    ],
+    [
+        "TEXTO" => "Ejercicios",
+        "ENLACE" => "./index.php"
+    ],
+    [
+        "TEXTO" => "Ejercicio 5",
+        "ENLACE" => ""
+    ]
+];
+
+//---//
 function crearVector() {
     $vector=array();
     $vector[1]="esto es una cadena";
@@ -51,7 +67,7 @@ function muestraVector($variable) {
 inicioCabecera("Ejercicio 5");
 cabecera();
 finCabecera();
-inicioCuerpo("Ejercicio 5");
+inicioCuerpo("Ejercicio 5", $barra);
 cuerpo(); //llamo a la vista
 finCuerpo();
 // **********************************************************
@@ -62,11 +78,6 @@ function cabecera() {}
 function cuerpo()
 {
 ?>
-    <ul class="barraUbicacion">
-        <li><a href="/index.php">Inicio</a></li>
-        <li><a href="/aplicacion/relacion1/index.php">Ejercicios</a></li>
-        <li><a href="#">Ejercicio 5</a></li>
-    </ul>
     <main class="contenidoPrincipal">
 <?php
 

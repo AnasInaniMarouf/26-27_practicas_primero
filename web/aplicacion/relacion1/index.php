@@ -6,13 +6,20 @@ $barra=[
         "TEXTO"=> "Inicio",
         "ENLACE" =>"/index.php"//, "ADICIONAL"=>">>"
     ],
-    /*[ 
-        "TEXTO"=> "otro"   
-    ],*/  
-    [ 
-        "TEXTO"=> "Index"/*,
-        "ADICIONAL"=> "&copy;&copy;"   */
+    [
+        "TEXTO" => "Ejercicios",
+        "ENLACE" => ""
     ]
+    
+    
+    /*,
+    [ 
+        "TEXTO"=> "otro"   
+    ],  
+    [ 
+        "TEXTO"=> "Index",
+        "ADICIONAL"=> "&copy;&copy;"
+    ]*/
 ];
 
 //dibuja la plantilla de la vista
@@ -53,9 +60,9 @@ function cuerpo()
             <a href="ejercicio7.php">Ejercicio 7</a>
         </li>
     </ul>
-    <ul class="barraUbicacion">
+    <!-- <ul class="barraUbicacion">
         <li><a href="/index.php">Inicio</a></li>
         <li><a href="/aplicacion/relacion1/index.php">Ejercicios</a></li>
-    </ul>
+    </ul> -->
 <?php
 }

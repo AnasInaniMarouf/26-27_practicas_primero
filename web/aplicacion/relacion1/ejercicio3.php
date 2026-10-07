@@ -1,6 +1,22 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
 //controlador
+$barra=[
+    [
+        "TEXTO"=> "Inicio",
+        "ENLACE" =>"/index.php"//, "ADICIONAL"=>">>"
+    ],
+    [
+        "TEXTO" => "Ejercicios",
+        "ENLACE" => "./index.php"
+    ],
+    [
+        "TEXTO" => "Ejercicio 3",
+        "ENLACE" => ""
+    ]
+];
+
+//---//
 function arrayVariasSentencias() {
     //Crear y rellenar el array en varias sentencias
     $array[1] = 23;
@@ -55,7 +71,7 @@ function muestraArray(array $array) {
 inicioCabecera("Ejercicio 3");
 cabecera();
 finCabecera();
-inicioCuerpo("Ejercicio 3");
+inicioCuerpo("Ejercicio 3", $barra);
 cuerpo(); //llamo a la vista
 finCuerpo();
 // **********************************************************
@@ -66,11 +82,6 @@ function cabecera() {}
 function cuerpo()
 {
 ?>
-    <ul class="barraUbicacion">
-        <li><a href="/index.php">Inicio</a></li>
-        <li><a href="/aplicacion/relacion1/index.php">Ejercicios</a></li>
-        <li><a href="#">Ejercicio 3</a></li>
-    </ul>
 
     <main class="contenidoPrincipal">
 <?php

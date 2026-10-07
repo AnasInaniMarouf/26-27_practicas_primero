@@ -68,6 +68,7 @@ function inicioCuerpo(string $cabecera, array $ubicacion = [])
             </div>
             <div id="barraUbicacion">
                 <?php
+
                 echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 
                 if ($ubicacion) {
@@ -116,7 +117,7 @@ function inicioCuerpo(string $cabecera, array $ubicacion = [])
                     }
                 }
 
-
+                echo "<br><br>";
                 ?>
             </div>
 
@@ -127,7 +128,6 @@ function inicioCuerpo(string $cabecera, array $ubicacion = [])
 function finCuerpo()
 {
 ?>
-                <br />
                 <br />
             </div>
             <footer>

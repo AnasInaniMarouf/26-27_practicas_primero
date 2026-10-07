@@ -5,14 +5,14 @@ $barra=[
     [
         "TEXTO"=> "Inicio",
         "ENLACE" =>"/index.php"//, "ADICIONAL"=>">>"
-    ],
-    /*[ 
+    ]/*,
+    [ 
         "TEXTO"=> "otro"   
-    ],*/  
+    ],
     [ 
         "TEXTO"=> "Index"/*,
-        "ADICIONAL"=> "&copy;&copy;"*/
-    ]
+        "ADICIONAL"=> "&copy;&copy;"
+    ]*/
 ];
 
 //dibuja la plantilla de la vista

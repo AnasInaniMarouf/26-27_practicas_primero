@@ -1,6 +1,22 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
 //controlador
+$barra=[
+    [
+        "TEXTO"=> "Inicio",
+        "ENLACE" =>"/index.php"//, "ADICIONAL"=>">>"
+    ],
+    [
+        "TEXTO" => "Ejercicios",
+        "ENLACE" => "./index.php"
+    ],
+    [
+        "TEXTO" => "Ejercicio 2",
+        "ENLACE" => ""
+    ]
+];
+
+//---//
 function lanzamientoDado6() {
     
     $array = [];
@@ -72,7 +88,7 @@ function lanzamientoDado($numLanzamientos) {
 inicioCabecera("Ejercicio 2");
 cabecera();
 finCabecera();
-inicioCuerpo("Ejercicio 2 - Lanzamiento de Dados");
+inicioCuerpo("Ejercicio 2 - Lanzamiento de Dados", $barra);
 cuerpo(); //llamo a la vista
 finCuerpo();
 // **********************************************************
@@ -83,12 +99,6 @@ function cabecera() {}
 function cuerpo()
 {
 ?>
-    <ul class="barraUbicacion">
-        <li><a href="/index.php">Inicio</a></li>
-        <li><a href="/aplicacion/relacion1/index.php">Ejercicios</a></li>
-        <li><a href="#">Ejercicio 2</a></li>
-    </ul>
-
     <main class="contenidoPrincipal">
 <?php
     echo mostrarArray6(lanzamientoDado6());

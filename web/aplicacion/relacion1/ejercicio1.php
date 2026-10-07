@@ -8,19 +8,21 @@ $barra=[
         "TEXTO"=> "Inicio",
         "ENLACE" =>"/index.php"//, "ADICIONAL"=>">>"
     ],
-    /*[ 
-        "TEXTO"=> "otro"   
-    ],*/  
-    [ 
-        "TEXTO"=> "Index"/*,
-        "ADICIONAL"=> "&copy;&copy;"*/
+    [
+        "TEXTO" => "Ejercicios",
+        "ENLACE" => "./index.php"
+    ],
+    [
+        "TEXTO" => "Ejercicio 1",
+        "ENLACE" => ""
     ]
 ];
+
 //dibuja la plantilla de la vista
 inicioCabecera("Ejercicio 1");
 cabecera();
 finCabecera();
-inicioCuerpo("Ejercicio 1 - Funciones Matematicas",);
+inicioCuerpo("Ejercicio 1 - Funciones Matematicas", $barra);
 cuerpo(); //llamo a la vista
 finCuerpo();
 // **********************************************************
@@ -31,11 +33,11 @@ function cabecera() {}
 function cuerpo()
 {
 ?>
-    <ul class="barraUbicacion">
+    <!-- <ul class="barraUbicacion">
         <li><a href="/index.php">Inicio</a></li>
         <li><a href="/aplicacion/relacion1/index.php">Ejercicios</a></li>
         <li><a href="#">Ejercicio 1</a></li>
-    </ul>
+    </ul> -->
     <main class="contenidoPrincipal">
 <?php
 
