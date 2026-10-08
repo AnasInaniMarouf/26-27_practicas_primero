@@ -28,37 +28,39 @@ function crearVector() {
     return $vector;
 }
 
-function muestraVector($variable) {
-
-    /*- posicion XXX contenido (tipo) YYYYY
-    - Según el tipo del contenido
-    o Si es un array mostrarlo mediante un foreach.
-    o Si es un entero poner Entero con valor DDD, en binario BBB
-    o Si es un real DDD que al cuadrado es DDD
-    o Si es una cadena -CCCCo Si es un booleano BBB y su opuesto XXX
-    Las palabras en mayúscula representan un valor concreto de lo pedido
-    */
+function muestraVector(array $vector) {
 
     $resultado = "";
-    $tipo = "";
 
-    if(is_array($variable)) {
-        foreach ($variable as $clave => $valor) {
-            $resultado .= "posicion " . $clave . "contenido(tipo) " . $valor . "<br>";
+    foreach ($vector as $posicion => $valor) {
+
+        $resultado .= "posicion " . $posicion . " contenido (tipo ";
+
+        if (is_array($valor)) {
+
+            $resultado .= "array):<br>";
+
+            foreach ($valor as $valordeArray) {
+                $resultado .= "&nbsp&nbsp&nbsp&nbsp&nbsp<strong>·</strong>" . $valordeArray . "<br>";
+            }
+
+        } else {
+
+            if (is_int($valor)) {
+                $resultado .= "Entero) Entero con valor " . $valor . ", en binario " . decbin($valor);
+
+            } else if(is_float($valor)){
+                $resultado .= "Real) " . $valor . ", que al cuadrado es " . pow($valor, 2);
+
+            } else if (is_string($valor)) {
+                $resultado .= "Cadena) -" . $valor . "-";
+
+            } else if (is_bool($valor)) {
+                $resultado .= "Booleano) " . ($valor? "true" : "false") . ", y su opuesto " . (!$valor? "true" : "false");
+            }
+
+            $resultado .= "<br>";
         }
-    } else {
-
-        if(is_int($variable) || is_float($variable)) {
-            $tipo = "DDD";
-        } else if(is_bool($variable)) {
-
-        }
-
-        if(is_string($variable)) {
-            $tipo = "CCCC";
-        }
-
-        //$resultado .= "posicion " . $clave . "contenido(tipo) " . $valor . "<br>";
     }
 
     return $resultado;
@@ -83,7 +85,7 @@ function cuerpo()
 
     echo muestraVector(crearVector());
 
-?>
+?>  
     </main>
 <?php
 }
