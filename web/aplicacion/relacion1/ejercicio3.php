@@ -16,7 +16,12 @@ $barra=[
     ]
 ];
 
-//---//
+/**
+ * Metodo que crea un array en varias
+ * sentencias, y lo devuelve
+ *
+ * @return array $array
+ */
 function arrayVariasSentencias() {
     //Crear y rellenar el array en varias sentencias
     $array[1] = 23;
@@ -33,6 +38,12 @@ function arrayVariasSentencias() {
     return $array;
 }
 
+/**
+ * Metodo que crea un array en una
+ * sola sentencia, y lo devuelve
+ *
+ * @return array $array
+ */
 function arrayUnaSentencia() {
     $array = array(1 => 23, 16 => "saludos", 54 => true, 34,
                     "uno" => "cadena", "dos" => true, "tres" => 1.345,
@@ -42,6 +53,12 @@ function arrayUnaSentencia() {
     return $array;
 }
 
+/**
+ * Metodo que crea y devuelve un array en una sola
+ * sentencia y con corchetes
+ *
+ * @return array $array
+ */
 function arrayUnaSentenciaCorchetes() {
     $array = [1 => 23, 16 => "saludos", 54 => true, 34,
                 "uno" => "cadena", "dos" => true, "tres" => 1.345,
@@ -51,20 +68,27 @@ function arrayUnaSentenciaCorchetes() {
     return $array;
 }
 
+/**
+ * Metodo que recorre un array y va guardando sus elementos
+ * en una variable de tipo cadena, para despues devolverla
+ *
+ * @param array $array
+ * @return string $resultado
+ */
 function muestraArray(array $array) {
 
-    $arrayToString = "";
+    $resultado = "";
 
     foreach ($array as $indice => $valor) {
         if(is_array($valor)) {
-            $arrayToString = $arrayToString . "Array de la posicion " . $indice . ": <br>" . muestraArray($valor);
+            $resultado = $resultado . "Array de la posicion " . $indice . ": <br>" . muestraArray($valor);
 
         } else {
-            $arrayToString = $arrayToString . "Elemento de la posicion " . $indice . " del array: " . $valor . "<br>";
+            $resultado = $resultado . "Elemento de la posicion " . $indice . " del array: " . $valor . "<br>";
         }
     }
 
-    return $arrayToString;
+    return $resultado;
 }
 
 //dibuja la plantilla de la vista
@@ -85,9 +109,9 @@ function cuerpo()
 
     <main class="contenidoPrincipal">
 <?php
-    echo muestraArray(arrayVariasSentencias()) . "<br>";
-    echo muestraArray(arrayUnaSentencia()) . "<br>";
-    echo muestraArray(arrayUnaSentenciaCorchetes()) . "<br>";
+    echo "<strong>Array de varias sentencias</strong><br>" . muestraArray(arrayVariasSentencias()) . "<br>";
+    echo "<strong>Array de una sola sentencia</strong><br>" . muestraArray(arrayUnaSentencia()) . "<br>";
+    echo "<strong>Array de una sola sentencia con corchetes</strong><br>" . muestraArray(arrayUnaSentenciaCorchetes()) . "<br>";
 ?>
     </main>
 <?php
