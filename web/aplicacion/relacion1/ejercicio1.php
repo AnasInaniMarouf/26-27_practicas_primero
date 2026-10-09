@@ -1,5 +1,6 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
+//Para incluir las funciones de la libreria Matematica
 include_once(dirname(__FILE__) . "/../../aplicacion/librerias/libreriaMatematica.php");
 //require_once "/../../aplicacion/librerias/libreriaMatematica.php";
 //controlador
@@ -33,14 +34,8 @@ function cabecera() {}
 function cuerpo()
 {
 ?>
-    <!-- <ul class="barraUbicacion">
-        <li><a href="/index.php">Inicio</a></li>
-        <li><a href="/aplicacion/relacion1/index.php">Ejercicios</a></li>
-        <li><a href="#">Ejercicio 1</a></li>
-    </ul> -->
     <main class="contenidoPrincipal">
 <?php
-
     echo "Redondeo(Round) del numero 5.67: " . redondeoRound(5.67);
     echo "<br><br>Redondeo(Floor) del numero 5.67: " . redondeoFloor(5.67);
     echo "<br><br>Potencia en base 3 de 5: " . potencia(3, 5);

@@ -16,7 +16,12 @@ $barra=[
     ]
 ];
 
-//---//
+/**
+ * Metodo que recorre un bucle y rellena un array
+ * con un numero aleatorio entre el 1 y el 6
+ *
+ * @return array $array
+ */
 function lanzamientoDado6() {
     
     $array = [];
@@ -28,7 +33,14 @@ function lanzamientoDado6() {
     return $array;
 }
 
-function mostrarArray6($array) {
+/**
+ * Metodo que devuelve una cadena mostrando
+ * los elementos del array anterior
+ *
+ * @param array $array
+ * @return string $valoresArray
+ */
+function mostrarArray6(array $array) {
 
     $valoresArray = "";
 
@@ -39,9 +51,16 @@ function mostrarArray6($array) {
     return $valoresArray;
 }
 
-function mostrarArray($array) {
+/**
+ * Metodo que muestra los elementos del array
+ * de lanzamientos de 1000 
+ *
+ * @param array $array
+ * @return string $valoresArray
+ */
+function mostrarArray(array $array) {
 
-    $numElementosArray = count($array); //variable para 
+    $numElementosArray = count($array); //variable para saber el numero de elementos que contiene el array
 
     $valoresArray = "Lanzado el dado " . $numElementosArray . " veces<br>";
 
@@ -69,7 +88,15 @@ function mostrarArray($array) {
     return $valoresArray;
 }
 
-function lanzamientoDado($numLanzamientos) {
+/**
+ * Metodo que crea un array y con un bucle while,
+ * va metiendo un numero aleatorio entre el 1 y el 6,
+ * dependiendo del numero de elementos que se le pase
+ *
+ * @param integer $numLanzamientos
+ * @return array $array
+ */
+function lanzamientoDado(int $numLanzamientos) {
 
     $array = [];
 
