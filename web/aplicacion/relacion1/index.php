@@ -7,7 +7,7 @@ $barra=[
         "ENLACE" =>"/index.php"//, "ADICIONAL"=>">>"
     ],
     [
-        "TEXTO" => "Ejercicios",
+        "TEXTO" => "Relacion 1",
         "ENLACE" => ""
     ]
     
@@ -23,10 +23,10 @@ $barra=[
 ];
 
 //dibuja la plantilla de la vista
-inicioCabecera("Practica 1");
+inicioCabecera("Relacion 1");
 cabecera();
 finCabecera();
-inicioCuerpo("EJERCICIOS", $barra);
+inicioCuerpo("Relacion 1", $barra);
 cuerpo(); //llamo a la vista
 finCuerpo();
 // **********************************************************

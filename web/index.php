@@ -32,7 +32,10 @@ function cuerpo()
 ?>
     <ul class="menuOpciones">
         <li>
-            <a href="./aplicacion/relacion1/index.php">Ejercicios</a>
+            <a href="./aplicacion/relacion1/index.php">Relacion 1</a>
+        </li>
+        <li>
+            <a href="./aplicacion/relacion2/index.php">Relacion 2</a>
         </li>
     </ul>
 <?php
