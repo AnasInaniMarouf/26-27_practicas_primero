@@ -16,31 +16,19 @@ $barra=[
     ]
 ];
 
-//---//
+const FILAS = 5;    //Constante para el numero de filas de la matriz
+
+/**
+ * Metodo que crea una matriz, recorriendola y añadiendole
+ * numeros a cada fila, con la constante FILAS
+ *
+ * @return array $matriz
+ */
 function creaMatriz() {
-    // $matriz[0][0] = 1;
-
-    // $matriz[1][0] = 2;
-    // $matriz[1][1] = 2; 
-
-    // $matriz[2][0] = 3;
-    // $matriz[2][1] = 3;
-    // $matriz[2][2] = 3;
-
-    // $matriz[3][0] = 4;
-    // $matriz[3][1] = 4;
-    // $matriz[3][2] = 4;
-    // $matriz[3][3] = 4;
-
-    // $matriz[4][0] = 5;
-    // $matriz[4][1] = 5;
-    // $matriz[4][2] = 5;
-    // $matriz[4][3] = 5;
-    // $matriz[4][4] = 5;
 
     $matriz = array();
 
-    for ($i=0; $i <= 4; $i++) { 
+    for ($i=0; $i < FILAS; $i++) { 
         for ($j=0; $j <= $i; $j++) { 
             $matriz[$i][$j] = $i + 1;
         }
@@ -48,14 +36,24 @@ function creaMatriz() {
     return $matriz;
 }
 
+/**
+ * Metodo que dado una matriz, la recorre y
+ * va guardando en una variable de tipo cadena
+ * su contenido
+ *
+ * @param array $matriz
+ * @return string $resultado
+ */
 function muestraMatriz(array $matriz) {
+
     $resultado = "";
 
-    foreach ($matriz as $fila => $fila1) {
+    foreach ($matriz as $fila) {
 
-        foreach ($fila1 as $columna => $valor) {
-            $resultado .= $valor . " ";
+        foreach ($fila as $elemento) {
+            $resultado .= $elemento . " ";
         }
+
         $resultado .= "<br>";
     }
 

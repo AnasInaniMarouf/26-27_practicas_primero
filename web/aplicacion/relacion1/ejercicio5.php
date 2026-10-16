@@ -16,8 +16,13 @@ $barra=[
     ]
 ];
 
-//---//
+/**
+ * Metodo que crea un vector y lo devuelve
+ *
+ * @return array $vector
+ */
 function crearVector() {
+
     $vector=array();
     $vector[1]="esto es una cadena";
     $vector["posi1"]=25.67;
@@ -28,6 +33,13 @@ function crearVector() {
     return $vector;
 }
 
+/**
+ * Metodo al que se le pasa un vector, lo recorre
+ * y va guardando en una cadena sus elementos
+ *
+ * @param array $vector
+ * @return string $resultado
+ */
 function muestraVector(array $vector) {
 
     $resultado = "";
@@ -40,8 +52,8 @@ function muestraVector(array $vector) {
 
             $resultado .= "array):<br>";
 
-            foreach ($valor as $valordeArray) {
-                $resultado .= "&nbsp&nbsp&nbsp&nbsp&nbsp<strong>·</strong>" . $valordeArray . "<br>";
+            foreach ($valor as $valorArray) {
+                $resultado .= "&nbsp&nbsp&nbsp&nbsp&nbsp<strong>·</strong>" . $valorArray . "<br>";
             }
 
         } else {

@@ -16,10 +16,22 @@ $barra=[
     ]
 ];
 
+/**
+ * Metodo que crea un vector y lo devuelve
+ *
+ * @return array
+ */
 function crearVector() {
     return array("primera" =>12.56, 24=>true, 67 =>23.76);
 }
 
+/**
+ * Metodo que va recorriendo un vector y se va guardando
+ * en una cadena su contenido, para despues devolverla
+ *
+ * @param array $vector
+ * @return string $resultado
+ */
 function muestraVector(array $vector) {
 
     $resultado = "";
@@ -31,6 +43,16 @@ function muestraVector(array $vector) {
     return $resultado;
 }
 
+/**
+ * Metodo que parecido a muestraVector(), pero
+ * en vez de recorrerlo con un foreach, se usan
+ * las funciones array_keys() y array_values()
+ * para obtener los arrays de los indices y valores
+ * del vector
+ *
+ * @param array $vector
+ * @return string $resultado
+ */
 function muestraVectorConFunciones(array $vector) {
 
     $resultado = "";

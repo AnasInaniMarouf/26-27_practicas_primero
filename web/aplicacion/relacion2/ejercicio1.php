@@ -36,6 +36,23 @@ function cuerpo()
 ?>
     <main class="contenidoPrincipal">
 <?php
+
+    $var = "cadena";
+
+    $texto1 =<<<fin
+        Esta es una cadena <br>
+        Esta es otra $var
+    fin;
+
+    $var2 = "NowDoc";
+
+    $texto2=<<<'fin'
+        Esta es una cadena con NowDoc
+        Esta es otra cadena con
+    fin;
+
+
+    echo $texto1;
 ?>
     </main>
 <?php
