@@ -52,14 +52,17 @@ function inicioCuerpo(string $cabecera, array $ubicacion = [])
         <div id="documento">
 
             <header>
-                <h1 id="titulo"><?php echo $cabecera; ?></h1>
+                <h1 id="titulo">
+                    <a href="../../index.php"><img src="../../imagenes/wb.png"></img></a>
+                    <?php echo $cabecera; ?>
+                </h1>
             </header>
-
+            
             <div id="barraLogin">
-
-            </div>
-            <div id="barraMenu">
-                <ul>
+                
+                </div>
+                <div id="barraMenu">
+                    <ul>
                     <li><a href="/index.php">Inicio</a></li>
                     <li><a href="/aplicacion/pruebas/index.php">Ejemplos Basicos</a></li>
 

@@ -34,26 +34,41 @@ function cabecera() {}
 function cuerpo()
 {
 ?>
-    <main class="contenidoPrincipal">
+<main class="contenidoPrincipal">
 <?php
 
     $var = "cadena";
 
-    $texto1 =<<<fin
-        Esta es una cadena <br>
-        Esta es otra $var
-    fin;
+    $textoComillas1 = "Esta es una $var con comillas dobles<br>" . PHP_EOL .
+                        "Esta es una cadena con una ñ y una etiqueta < br><br>" . PHP_EOL;
 
-    $var2 = "NowDoc";
+    $textoComillas2 = 'Esta es una ' . $var . ' con comillas dobles<br>' . PHP_EOL . //Con comillas simples no se puede poner variables dentro
+                        'Esta es una cadena con una ñ y una etiqueta < br><br>' . PHP_EOL;
+
+    $var1 = "HEREDOC";
+
+    $texto1 =<<<fin
+        Esta es una cadena con 'HEREDOC' <br>
+        Esta es otra cadena con "$var1" <br>
+        Esta es una cadena con una tílde á<br>
+        Esta es una cadena con una etiqueta < br><br>
+        fin . PHP_EOL;
+
+    //Con nowdoc no se pueden mostrar las variables
+    $var2 = "NOWDOC";
 
     $texto2=<<<'fin'
-        Esta es una cadena con NowDoc
-        Esta es otra cadena con
-    fin;
+        Esta es una cadena con 'NOWDOC' <br>
+        Esta es otra cadena con "$var2" <br>
+        Esta es una cadena con una tílde á<br>
+        Esta es una cadena con una etiqueta < br><br>
+        fin . PHP_EOL;
 
-
+    echo $textoComillas1;
+    echo $textoComillas2;
     echo $texto1;
+    echo $texto2;
 ?>
-    </main>
+</main>
 <?php
 }

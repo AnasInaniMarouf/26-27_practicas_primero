@@ -19,24 +19,112 @@ $barra=[
     ]
 ];
 
+$texto = "Está la niña en casa";
+
+$cadena1 = muestraCadena($texto);
+$cadena2 = muestraCadenaInversa($texto);
+$cadena3 = separaPorA($texto);
+$cadena4 = cambiaDespuesDeNinia($texto);
+
 //dibuja la plantilla de la vista
 inicioCabecera("Ejercicio 2");
 cabecera();
 finCabecera();
 inicioCuerpo("Ejercicio 2", $barra);
-cuerpo(); //llamo a la vista
+cuerpo($cadena1, $cadena2, $cadena3, $cadena4); //llamo a la vista
 finCuerpo();
 // **********************************************************
 
 //vista
 function cabecera() {}
 //vista
-function cuerpo()
+function cuerpo(string $cadena1, string $cadena2, string $cadena3, string $cadena4)
 {
 ?>
     <main class="contenidoPrincipal">
 <?php
+    echo $cadena1;
+    echo $cadena2;
+    echo $cadena3;
+    echo $cadena4;
 ?>
     </main>
 <?php
+}
+
+function muestraCadena(string $cadena) {
+    $resultado = "";
+
+    //No funciona, salen los caracteres especiales con un simbolo negro con una interrogacion
+    // for($i = 0; $i < strlen($cadena); $i++) {
+
+    //     for($j = 0; $j < $i; $j++) {
+    //         $resultado .= "&nbsp";
+    //     }
+
+    //     $resultado .= $cadena[$i] . "<br>" . PHP_EOL; 
+    // }
+
+    //No funciona tampoco, salen tambien los caracteres especiales con el simbolo ese negro
+    // for($i = 0; $i < strlen($cadena); $i++) {
+
+    //     for($j = 0; $j < $i; $j++) {
+    //         $resultado .= "&nbsp";
+    //     }
+
+    //     $resultado .= mb_substr($cadena, $i, 1) . "<br>" . PHP_EOL; 
+    // }
+
+    for ($i = 0; $i < strlen($cadena); $i++) {
+
+        for($j = 0; $j < $i; $j++) {
+            $resultado .= "&nbsp";
+         }
+
+        $resultado .= mb_substr($cadena, $i, 1) . "<br>" . PHP_EOL;
+    }
+
+
+    return $resultado;
+}
+
+function muestraCadenaInversa(string $cadena) {
+    $resultado = "";
+ 
+    for ($i = 0; $i < strlen($cadena); $i++) {
+        $caracter = mb_substr($cadena, -($i + 1), 1);
+ 
+        if ($i % 2 == 0) {
+            $caracter = strtoupper($caracter);
+        } else {
+            $caracter = strtoupper($caracter);
+        }
+        //El metodo str_repeat es lo mismo que el bucle de la funcion anterior, solo que mas corto y mejor
+        $resultado .= str_repeat("&nbsp;", $i) . $caracter . "<br>" . PHP_EOL;
+    }
+ 
+    return $resultado;
+}
+
+function separaPorA(string $cadena) {
+    $resultado = "";
+    $partesCadena = explode("a", $cadena);
+ 
+    foreach ($partesCadena as $parte) {
+        $resultado .= $parte     . "<br>" . PHP_EOL;
+    }
+ 
+    return $resultado;
+}
+
+
+function cambiaDespuesDeNinia(string $cadena) {
+    $resultado = "";
+    $palabra = "niña";
+ 
+    //El metodo mb_strpos encuentra la palabra de la cadena, y devuelve la posicion en la que esta
+    $resultado = mb_substr($cadena, 0, mb_strpos($cadena, $palabra) + mb_strlen($palabra)) .
+                "/mujer " . mb_substr($cadena, mb_strpos($cadena, $palabra) + mb_strlen($palabra) + 1) . "<br>" . PHP_EOL;
+
+    return $resultado;
 }
