@@ -116,6 +116,24 @@ footer {
     text-align: center;
 }
 
+#barraMenu ul {
+    background-color: #8eea97ab;
+    border: 2px solid #66BB6A;
+    border-radius: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#barraMenu ul li {
+    display: inline;
+}
+
+#barraMenu li+li:before {
+    content: "ㅤ";
+}
+
 .barraUbicacion li {
     display: inline;
     font-style: italic;
