@@ -37,6 +37,9 @@ function cuerpo()
         <li>
             <a href="./aplicacion/relacion2/index.php">Relacion 2</a>
         </li>
+        <li>
+            <a href="./aplicacion/relacion3/index.php">Relacion 3</a>
+        </li>
     </ul>
 <?php
 }

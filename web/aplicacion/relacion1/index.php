@@ -10,23 +10,13 @@ $barra=[
         "TEXTO" => "Relacion 1",
         "ENLACE" => ""
     ]
-    
-    
-    /*,
-    [ 
-        "TEXTO"=> "otro"   
-    ],  
-    [ 
-        "TEXTO"=> "Index",
-        "ADICIONAL"=> "&copy;&copy;"
-    ]*/
 ];
 
 //dibuja la plantilla de la vista
 inicioCabecera("Relacion 1");
 cabecera();
 finCabecera();
-inicioCuerpo("Relacion 1", $barra);
+inicioCuerpo("Relacion 1 - Arrays", $barra);
 cuerpo(); //llamo a la vista
 finCuerpo();
 // **********************************************************

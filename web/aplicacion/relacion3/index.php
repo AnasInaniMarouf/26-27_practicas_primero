@@ -1,5 +1,6 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
+include_once(dirname(__FILE__) . "/Libreria.php");
 //controlador
 $barra=[
     [
@@ -7,56 +8,42 @@ $barra=[
         "ENLACE" =>"/index.php"//, "ADICIONAL"=>">>"
     ],
     [
-        "TEXTO" => "Relacion 2",
+        "TEXTO" => "Relacion 3",
         "ENLACE" => ""
     ]
-    
-    
-    /*,
-    [ 
-        "TEXTO"=> "otro"   
-    ],  
-    [ 
-        "TEXTO"=> "Index",
-        "ADICIONAL"=> "&copy;&copy;"
-    ]*/
 ];
+
+$array = [];
+$posicion = "segunda";
+$num1 = 3;
+$num2 = 2;
+
+cuentaVeces($array, $posicion, $num1, $num2);
+cuentaVeces($array, $posicion, $num1, $num2);
+cuentaVeces($array, $posicion, $num1, $num2);
+cuentaVeces($array, $posicion, $num1, $num2);
+cuentaVeces($array, $posicion, $num1, $num2);
 
 //dibuja la plantilla de la vista
 inicioCabecera("Relacion 3");
 cabecera();
 finCabecera();
-inicioCuerpo("Relacion 2", $barra);
-cuerpo(); //llamo a la vista
+inicioCuerpo("Relacion 3 - Funciones", $barra);
+cuerpo($array, $posicion, $num1, $num2); //llamo a la vista
 finCuerpo();
 // **********************************************************
 //vista
 function cabecera()
 {}
 //vista
-function cuerpo()
+function cuerpo(array $array, string $posicion, int $num1, int $num2)
 {
 ?>
-    <ul class="menuOpciones">
-        <li>
-            <a href="ejercicio1.php">Ejercicio 1</a>
-        </li>
-        <li>
-            <a href="ejercicio2.php">Ejercicio 2</a>
-        </li>
-        <li>
-            <a href="ejercicio3.php">Ejercicio 3</a>
-        </li>
-        <li>
-            <a href="ejercicio4.php">Ejercicio 4</a>
-        </li>
-        <li>
-            <a href="ejercicio5.php">Ejercicio 5</a>
-        </li>
-    </ul>
-    <!-- <ul class="barraUbicacion">
-        <li><a href="/index.php">Inicio</a></li>
-        <li><a href="/aplicacion/relacion1/index.php">Ejercicios</a></li>
-    </ul> -->
+<main class="contenidoPrincipal">
+<?php
+    echo "Funcion cuentaVeces() llamada  " . $num2 . " veces: " . PHP_EOL;
+?>
+</main>
 <?php
 }
+?>

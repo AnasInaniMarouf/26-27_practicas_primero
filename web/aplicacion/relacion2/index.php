@@ -10,23 +10,13 @@ $barra=[
         "TEXTO" => "Relacion 2",
         "ENLACE" => ""
     ]
-    
-    
-    /*,
-    [ 
-        "TEXTO"=> "otro"   
-    ],  
-    [ 
-        "TEXTO"=> "Index",
-        "ADICIONAL"=> "&copy;&copy;"
-    ]*/
 ];
 
 //dibuja la plantilla de la vista
 inicioCabecera("Relacion 2");
 cabecera();
 finCabecera();
-inicioCuerpo("Relacion 2", $barra);
+inicioCuerpo("Relacion 2 - Cadenas", $barra);
 cuerpo(); //llamo a la vista
 finCuerpo();
 // **********************************************************
@@ -54,9 +44,5 @@ function cuerpo()
             <a href="ejercicio5.php">Ejercicio 5</a>
         </li>
     </ul>
-    <!-- <ul class="barraUbicacion">
-        <li><a href="/index.php">Inicio</a></li>
-        <li><a href="/aplicacion/relacion1/index.php">Ejercicios</a></li>
-    </ul> -->
 <?php
 }
