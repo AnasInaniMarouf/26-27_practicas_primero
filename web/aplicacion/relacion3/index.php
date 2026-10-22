@@ -63,7 +63,25 @@ function cuerpo()
     echo "Llamada 1 a la funcion operaciones(): " . operaciones(1, 2, 3, 4, 5) . "<br>" . PHP_EOL;
     echo "Llamada 2 a la funcion operaciones(): " . operaciones(2, 10, 2, 3, 4) . "<br>" . PHP_EOL;
     echo "Llamada 3 a la funcion operaciones(): " . operaciones(3, 3, 2, 4, 2) . "<br>" . PHP_EOL;
-    echo "Llamada 4 a la funcion operaciones(): " . operaciones(-1, 3, 10, 4, 10, 2, 5, 1) . "<br>" . PHP_EOL;
+    echo "Llamada 4 a la funcion operaciones(): " . operaciones(-1, 3, 10, 4, 10, 2, 5, 1) . PHP_EOL;
+
+    echo "<br><br>" . PHP_EOL;
+
+    //Ejercicio 4
+    $valor = 3;
+
+    echo "Llamada 1 a la funcion devuelve(): " . devuelve($valor, 2, 3) . ", y el nuevo valor de \$valor es: $valor" . "<br>" . PHP_EOL;
+    echo "Llamada 2 a la funcion devuelve(): " . devuelve($valor) . ", y el nuevo valor de \$valor es: $valor" . "<br>" . PHP_EOL;
+    echo "Llamada 3 a la funcion devuelve(): " . devuelve($valor, 5) . ", y el nuevo valor de \$valor es: $valor" . "<br>" . PHP_EOL;
+    echo "Llamada 4 a la funcion devuelve(): " . devuelve($valor, num3: 10) . ", y el nuevo valor de \$valor es: $valor" . PHP_EOL;
+
+    echo "<br><br>" . PHP_EOL;
+
+    //Ejercicio 5
+    echo "Llamada 1 a la funcion hacerOperacion(): " . hacerOperacion("suma", 10, 12) . "<br>" . PHP_EOL;
+    echo "Llamada 2 a la funcion hacerOperacion(): " . hacerOperacion("resta", 15, 4) . "<br>" . PHP_EOL;
+    echo "Llamada 3 a la funcion hacerOperacion(): " . hacerOperacion("multiplicacion", 5, 5) . "<br>" . PHP_EOL;
+    echo "Llamada 4 a la funcion hacerOperacion(): " . hacerOperacion("division", 7, 16) . PHP_EOL;
 ?>
 </main>
 <?php

@@ -35,28 +35,25 @@ function operaciones(int $tipoOperacion, int $num1, int $num2, int $num3, int ..
     switch ($tipoOperacion) {
         case 1:
             $resultado = $num1 + $num2 + $num3;
-
             foreach($resto as $num) {
                 $resultado += $num;
             }
-
             break;
+
         case 2:
             $resultado = $num1 - $num2 - $num3;
-
             foreach($resto as $num) {
                 $resultado -= $num;
             }
-
             break;
+
         case 3:
             $resultado = $num1 * $num2 * $num3;
-
             foreach($resto as $num) {
                 $resultado *= $num;
             }
-
             break;
+
         default:
             //pares
             $sumPares = $num2;
@@ -74,6 +71,33 @@ function operaciones(int $tipoOperacion, int $num1, int $num2, int $num3, int ..
     }
 
     return $resultado;
+}
+
+function devuelve(int &$num1, int $num2 = 6, int $num3 = 7):int {
+    $num1 += $num2 + $num3;
+    return $num1 * $num2 * $num3;
+}
+
+function suma(int $num1, int $num2):int {
+    return $num1 + $num2;
+}
+
+function resta(int $num1, int $num2):int {
+    return $num1 - $num2;
+}
+
+function multiplicacion(int $num1, int $num2):int {
+    return $num1 * $num2;
+}
+
+function hacerOperacion(string $tipoOperacion, int $num1, int $num2):int|bool {
+    if(mb_strtolower($tipoOperacion) != "resta" ||
+            mb_strtolower($tipoOperacion) != "suma" ||
+            mb_strtolower($tipoOperacion) != "multiplicacion") {
+        return false;
+    }
+    
+    return ($tipoOperacion($num1, $num2));
 }
 
 ?>
