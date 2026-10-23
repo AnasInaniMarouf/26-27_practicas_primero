@@ -81,7 +81,12 @@ function cuerpo()
     echo "Llamada 1 a la funcion hacerOperacion(): " . hacerOperacion("suma", 10, 12) . "<br>" . PHP_EOL;
     echo "Llamada 2 a la funcion hacerOperacion(): " . hacerOperacion("resta", 15, 4) . "<br>" . PHP_EOL;
     echo "Llamada 3 a la funcion hacerOperacion(): " . hacerOperacion("multiplicacion", 5, 5) . "<br>" . PHP_EOL;
-    echo "Llamada 4 a la funcion hacerOperacion(): " . hacerOperacion("division", 7, 16) . PHP_EOL;
+
+    $operacion = hacerOperacion("division", 7, 16);
+    echo "Llamada 4 a la funcion hacerOperacion(): " . ($operacion? $operacion : "false") . PHP_EOL;
+
+    //Ejercicio 6
+    
 ?>
 </main>
 <?php

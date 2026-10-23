@@ -91,13 +91,18 @@ function multiplicacion(int $num1, int $num2):int {
 }
 
 function hacerOperacion(string $tipoOperacion, int $num1, int $num2):int|bool {
-    if(mb_strtolower($tipoOperacion) != "resta" ||
-            mb_strtolower($tipoOperacion) != "suma" ||
-            mb_strtolower($tipoOperacion) != "multiplicacion") {
-        return false;
-    }
+    $esValido = false;
+
+    match(strtolower($tipoOperacion)) {
+        "suma", "resta", "multiplicacion" => $esValido = true,
+        default => $esValido = false
+    };
+
+    return ($esValido? ($tipoOperacion($num1, $num2)) : $esValido);
+}
+
+function llamaAFuncion(int $num1, int $num2) {
     
-    return ($tipoOperacion($num1, $num2));
 }
 
 ?>
