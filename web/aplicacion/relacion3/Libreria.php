@@ -101,8 +101,30 @@ function hacerOperacion(string $tipoOperacion, int $num1, int $num2):int|bool {
     return ($esValido? ($tipoOperacion($num1, $num2)) : $esValido);
 }
 
-function llamaAFuncion(int $num1, int $num2) {
-    
+function llamaAFuncion(int $num1, int $num2, callable$fn):int {
+
+    return $fn($num1, $num2);
+}
+
+function ordenar(array &$array):void {
+    usort($array, fn($a, $b) => 
+        strlen($b) - strlen($a) //a-b es orden ascendente, b-a orden descendente
+    );
+}
+
+//Esto no es un ejercicio de la relacion, lo hago aqui simplemente para no tener que hacerla en la vista
+function muestraArray(array $array):string {
+    $resultado = "(";
+
+    foreach($array as $cadena) {
+        $resultado .= $cadena . ", ";
+    }
+
+    $resultado = substr($resultado, 0, -2); //para quitarle la coma y el espacio del final
+
+    $resultado .= ")";
+
+    return $resultado;
 }
 
 ?>

@@ -85,8 +85,26 @@ function cuerpo()
     $operacion = hacerOperacion("division", 7, 16);
     echo "Llamada 4 a la funcion hacerOperacion(): " . ($operacion? $operacion : "false") . PHP_EOL;
 
+    echo "<br><br>" . PHP_EOL;
+
     //Ejercicio 6
+    $fnSuma = llamaAFuncion(4, 5, fn($a, $b) => $a + $b);
+    echo "Llamada 1 a la funcion llamaAFuncion(): " . $fnSuma . "<br>" . PHP_EOL;
+
+    $fnResta = llamaAFuncion(22, 12, fn($a, $b) => $a - $b);
+    echo "Llamada 2 a la funcion llamaAFuncion(): " . $fnResta . "<br>" . PHP_EOL;
+
+    $fnMultiplicacion = llamaAFuncion(6, 7, fn($a, $b) => $a * $b);
+    echo "Llamada 3 a la funcion llamaAFuncion(): " . $fnMultiplicacion . PHP_EOL;
+
+    echo "<br><br>" . PHP_EOL;
+
+    //Ejercicio 7
+    $vector=array("uno","grande","caminos","a");
+    echo "Array sin ordenar: " . muestraArray($vector) . "<br>" . PHP_EOL;
     
+    ordenar($vector);
+    echo "Array ordenado: " . muestraArray($vector) . PHP_EOL;
 ?>
 </main>
 <?php
