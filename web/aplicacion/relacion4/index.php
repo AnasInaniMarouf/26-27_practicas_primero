@@ -1,5 +1,6 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
+include_once(dirname(__FILE__) . "/../../scripts/clases/InstrumentoBase.php");
 //controlador
 $barra=[
     [
@@ -29,7 +30,9 @@ function cuerpo()
 ?>
 <main class="contenidoPrincipal">
 <?php
+$instrumento = new InstrumentoBase("", 2);
 
+echo $instrumento -> sonido();
 ?>
 </main>
 <?php
