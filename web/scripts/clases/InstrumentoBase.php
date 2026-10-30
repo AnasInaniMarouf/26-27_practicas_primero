@@ -9,6 +9,7 @@ Class InstrumentoBase {
 
     public function __construct(string $desc, int $edad) {
         $this -> _descripcion = $desc;
+        self::$instrumentosCreados++;
     }
 
     /*abstract*/ public function sonido() {

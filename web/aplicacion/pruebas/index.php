@@ -34,6 +34,9 @@ function cuerpo()
         <li>
             <a href="array.php">Prueba de arrays</a>
         </li>
+        <li>
+            <a href="pagformulario.php">Prueba de formularios</a>
+        </li>
     </ul>
     <main class="contenidoPrincipal">
         Elemento de pruebas
