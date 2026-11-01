@@ -4,12 +4,12 @@
  */
 class InstrumentoViento extends InstrumentoBase {
 
-    protected string $material; //Material del que esta hecho el instrumento de viento
+    protected string $_material; //Material del que esta hecho el instrumento de viento
 
-    public function __construct(string $material = "madera", int $edad = 15) {
-        parent::__construct("Instrumento de viento", $edad);
+    public function __construct(string $_material = "madera", int $_edad = 15) {
+        parent::__construct("Instrumento de viento", $_edad);
 
-        $this -> material = $material;
+        $this -> _material = $_material;
     }
 
     /**
@@ -38,7 +38,7 @@ class InstrumentoViento extends InstrumentoBase {
      *
      * @return string
      */
-    public function echoInstrumentoViento(): string {
-        return parent::echoInstrumentoBase() . "Instrumento de material " . $this -> material;
+    public function __toString(): string {
+        return parent::__toString() . "Instrumento de material " . $this -> _material;
     }
 }

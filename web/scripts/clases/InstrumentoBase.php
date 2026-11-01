@@ -5,10 +5,10 @@
 abstract class InstrumentoBase {
     
     private string $_descripcion;   //Descripcion del instrumento
-    protected int $edad;    //Edad del instrumento (por defecto sera 10)
+    protected int $_edad;    //Edad del instrumento (por defecto sera 10)
 
     //Propiedad de clase protegida para contar el numero de instrumentos creados
-    protected static int $instrumentosCreados = 0;
+    protected static int $_instrumentosCreados = 0;
     
     //Propiedad de instancia para indicar el orden del instrumento creado
     private int $_ordenCreacion;
@@ -18,16 +18,29 @@ abstract class InstrumentoBase {
      * base a esos parametros, y ademas los iguala a las propiedades de la clase
      *
      * @param string $desc
-     * @param integer $edad
+     * @param integer $_edad
      */
-    public function __construct(string $desc, int $edad = 10) {
+    public function __construct(string $desc, int $_edad = 10) {
         $this -> _descripcion = $desc;
-        $this -> edad = $edad;
+        $this -> _edad = $_edad;
 
-        self::$instrumentosCreados++;
+        
+        $this -> _aumentarInstrumentos();
+    }
+
+    /**
+     * Funcion para aumentar el contador del numero de instrumentos creados,
+     * y ademas asignarle el orden al instrumento, he tenido que hacer este metodo
+     * para utilizarlo despues en la clase Flauta para cuando quiera clonar una flauta
+     *
+     * @return void
+     */
+    protected function _aumentarInstrumentos(): void {
+        self::$_instrumentosCreados++;
+        
         //Como la variable de clase va aumentando cada vez que se cree un instrumento,
         //he igualado el orden de creacion para que cada objeto tenga su propio orden y siempre sea distinto
-        $this -> _ordenCreacion = self::$instrumentosCreados;
+        $this->_ordenCreacion = self::$_instrumentosCreados;
     }
 
     /**
@@ -51,7 +64,7 @@ abstract class InstrumentoBase {
      * @return void
      */
     public function envejecer(): void {
-        $this -> edad++;
+        $this -> _edad++;
     }
 
     /**
@@ -59,9 +72,9 @@ abstract class InstrumentoBase {
      *
      * @return string
      */
-    public function echoInstrumentoBase(): string {
+    public function __toString(): string {
         return "Instrumento con descripción " . $this -> _descripcion . ", instancia " . $this -> _ordenCreacion .
-                " de un total de " . self::$instrumentosCreados . ". Tiene " . $this -> edad . " años. La clase es " . get_class($this) . ". ";
+                " de un total de " . self::$_instrumentosCreados . ". Tiene " . $this -> _edad . " años. La clase es " . get_class($this) . ". ";
     }
 
     //Getters
@@ -70,11 +83,30 @@ abstract class InstrumentoBase {
     }
 
     public function getEdad(): int {
-        return $this -> edad;
+        return $this -> _edad;
     }
 
     //Setters
     public function setCadena(string $cadena): void {
         $this -> _descripcion = $cadena;
+    }
+
+    //Deshabilitar la sobrecarga dinámica en la clase
+    /*Como las demas clases heredan de esta, no hace falta escribirlas otra vez
+    porque estos metodos tambien se heredan*/
+    public function __get(string $nombre): mixed {
+        throw new Exception("No existe la propiedad " . $nombre);
+    }
+
+    public function __set(string $nombre, mixed $valor): void {
+        throw new Exception("No existe la propiedad " . $nombre);
+    }
+
+    public function __isset(string $nombre): bool {
+        throw new Exception("No existe la propiedad " . $nombre);
+    }
+
+    public function __unset(string $nombre): void {
+        throw new Exception("No existe la propiedad " . $nombre);
     }
 }
