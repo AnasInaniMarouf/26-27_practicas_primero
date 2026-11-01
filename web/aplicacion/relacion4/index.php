@@ -30,9 +30,34 @@ function cuerpo()
 ?>
 <main class="contenidoPrincipal">
 <?php
-$instrumento = new InstrumentoBase("", 2);
+//Prueba del funcionamiento de la clase InstrumentoBase
+// $instrumento1 = new InstrumentoBase("Violin", 2);
+// $instrumento2 = new InstrumentoBase("Piano");
+// echo $instrumento1 -> echoInstrumentoBase();
+// echo $instrumento2 -> echoInstrumentoBase();
 
-echo $instrumento -> sonido();
+//Prueba del funcionamiento de la clase InstrumentoViento
+$instrumento1 = new InstrumentoViento("madera");
+$instrumento2 = new InstrumentoViento("metal", 20);
+$instrumento3 = new InstrumentoViento();
+
+echo "<h3>Instrumentos de Viento (Ejercicio 3)</h3>";
+
+echo $instrumento1 -> echoInstrumentoViento() . "<br><br>";
+echo $instrumento2 -> echoInstrumentoViento() . "<br><br>";
+echo $instrumento3 -> echoInstrumentoViento() . "<br><br>";
+
+echo "Descripcion del instrumento1: " . $instrumento1->getCadena() . "<br>";
+echo "Edad del instrumento1: " . $instrumento1->getEdad() . "<br><br>";
+
+$instrumento1 -> setCadena("Flauta");
+$instrumento1->envejecer();
+echo "Nueva descripcion del instrumento1: " . $instrumento1->getCadena() . "<br>";
+echo "Nueva edad del instrumento1: " . $instrumento1->getEdad() . "<br><br>";
+
+echo "Sonido del instrumento1: " . $instrumento1->sonido() . "<br>";
+echo "Afinar del instrumento1: " . $instrumento1->afinar() . "<br>";
+
 ?>
 </main>
 <?php
