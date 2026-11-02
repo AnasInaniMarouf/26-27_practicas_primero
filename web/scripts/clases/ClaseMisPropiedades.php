@@ -43,7 +43,7 @@ class ClaseMisPropiedades implements Iterator{
     public function __get(string $nombre): mixed {
 
         //Valida antes que exista la clave en el array
-        if (!array_key_exists($nombre, $this -> _propiedades[$nombre])) throw new Exception("A la propiedad $nombre no se le ha asignado ningun valor");
+        if (!array_key_exists($nombre, $this -> _propiedades)) throw new Exception("A la propiedad $nombre no se le ha asignado ningun valor");
 
         return $this -> _propiedades[$nombre];
     }
