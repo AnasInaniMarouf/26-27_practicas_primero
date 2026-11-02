@@ -78,7 +78,7 @@ abstract class InstrumentoBase {
     }
 
     //Getters
-    public function getCadena(): string {
+    public function getDescripcion(): string {
         return $this -> _descripcion;
     }
 
@@ -87,7 +87,7 @@ abstract class InstrumentoBase {
     }
 
     //Setters
-    public function setCadena(string $cadena): void {
+    public function setDescripcion(string $cadena): void {
         $this -> _descripcion = $cadena;
     }
 

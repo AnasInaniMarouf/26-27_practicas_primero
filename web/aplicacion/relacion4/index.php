@@ -46,12 +46,12 @@ echo $instrumento1 -> __toString() . "<br><br>" . PHP_EOL;    //Es lo mismo pone
 echo $instrumento2 . "<br><br>" . PHP_EOL;
 echo $instrumento3 . "<br><br>" . PHP_EOL;
 
-echo "Descripcion del instrumento1: " . $instrumento1->getCadena() . "<br>" . PHP_EOL;
+echo "Descripcion del instrumento1: " . $instrumento1->getDescripcion() . "<br>" . PHP_EOL;
 echo "Edad del instrumento1: " . $instrumento1->getEdad() . "<br><br>" . PHP_EOL;
 
-$instrumento1 -> setCadena("Flauta");
+$instrumento1 -> setDescripcion("Flauta");
 $instrumento1->envejecer();
-echo "Nueva descripcion del instrumento1: " . $instrumento1->getCadena() . "<br>" . PHP_EOL;
+echo "Nueva descripcion del instrumento1: " . $instrumento1->getDescripcion() . "<br>" . PHP_EOL;
 echo "Nueva edad del instrumento1: " . $instrumento1->getEdad() . "<br><br>" . PHP_EOL;
 
 echo "Sonido del instrumento1: " . $instrumento1->sonido() . "<br>" . PHP_EOL;
@@ -78,6 +78,41 @@ $persona = Persona::registrarPersona("Juan", "15/05/1995", "Calle Carrera 10", "
 
 echo "<h3>Persona (Ejercicio 5)</h3>" . PHP_EOL;
 echo $persona . PHP_EOL;
+
+//Prueba del funcionamiento de la clase SerieFibonacci
+echo "<h3>SerieFibonacci (Ejercicio 6)</h3>" . PHP_EOL;
+
+$num = 10;
+
+
+//Usando la clase SerieFibonacci
+echo "Fibonacci de $num (con clase SerieFibonacci): ";
+
+foreach(new SerieFibonacci($num) as $valor) {
+    echo "$valor &nbsp;";
+}
+
+//Usando el metodo estatico fFibonacci()
+echo "<br>Fibonacci de $num (con metodo fFibonacci()): ";
+
+foreach (SerieFibonacci::fFibonacci($num) as $valor) {
+    echo "$valor &nbsp;";
+}
+
+//Prueba del funcionamiento de la clase ClaseMisPropiedades
+echo "<h3>ClaseMisPropiedades (Ejercicio 7)</h3>" . PHP_EOL;
+
+$Objeto= new ClaseMisPropiedades();
+$Objeto->propPublica="publica";
+//$Objeto->_propPrivada="privada"; //no es valida al ser privada
+$Objeto->propiedad1=25;
+$Objeto->propiedad2="cadena de texto";
+echo "la propiedad 1 vale ".$Objeto->propiedad1."<br>";
+//echo $Objeto->propiedad3; // esto debería dar un error al no haber asignado previamente la propiedad
+
+foreach ($Objeto as $clave => $valor) {
+    echo $clave . " = " . $valor . "<br>";
+}
 
 ?>
 </main>
