@@ -65,10 +65,20 @@ $flauta1 = Flauta::CrearDesdeArray([
 
 $flauta2 = clone $flauta1;
 
-echo "<h3>Flauta (Ejercicio 4)</h3>";
+echo "<h3>Flauta (Ejercicio 4)</h3>" . PHP_EOL;
 
 echo $flauta1 . "<br><br>" . PHP_EOL;
-echo $flauta2;
+echo $flauta2 . PHP_EOL;
+
+//Prueba del funcionamiento de la clase Persona
+$estadoAleatorio = EstadoCivil::cases()[array_rand(EstadoCivil::cases())];  //el metodo array_rand devuelve un indice aleatorio del array que esta dentro
+
+$persona = Persona::registrarPersona("Juan", "15/05/1995", "Calle Carrera 10", "Antequera", $estadoAleatorio);
+//$persona1 = new Persona();    //da error porque el constructor es privado
+
+echo "<h3>Persona (Ejercicio 5)</h3>" . PHP_EOL;
+echo $persona . PHP_EOL;
+
 ?>
 </main>
 <?php
