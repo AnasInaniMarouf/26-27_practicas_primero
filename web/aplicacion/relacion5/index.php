@@ -1,5 +1,9 @@
 <?php
+
+use function VALNORMAL\validaFecha;
+
 include_once(dirname(__FILE__) . "/../../cabecera.php");
+include_once(dirname(__FILE__) . "/../../scripts/librerias/val_normal.php");
 //controlador
 $barra=[
     [
@@ -29,7 +33,9 @@ function cuerpo()
 ?>
 <main class="contenidoPrincipal">
 <?php
-
+$fecha = "6/7/2026";
+validaFecha($fecha, "01/01/2026");
+echo $fecha . PHP_EOL;
 ?>
 </main>
 <?php
