@@ -48,7 +48,7 @@ function validaReal(float &$var, float $min, float $max, float $defecto):bool {
  * Funcion que comprueba que $var contiene una fecha correcta en el formato dd/mm/aaaa
  *
  * @param string $var la fecha que se pasa, se devuelve la fecha saneada (si esta mal se le asigna $defecto)
- * @param string $defecto la fecha por defecto que tomara $var en caso de estar mal 
+ * @param string $defecto el valor por defecto que tomara $var si no se cumple la condicion
  * @return boolean
  */
 function validaFecha(string &$var, string $defecto):bool {
@@ -80,7 +80,7 @@ function validaFecha(string &$var, string $defecto):bool {
  * Funcion que comprueba que $var contiene una hora correcta en el formato hh:mm:ss
  *
  * @param string $var la hora que se pasa, se devuelve la hora saneada (si esta mal se le asigna $defecto)
- * @param string $defecto la hora por defecto que tomara $var en caso de estar mal 
+ * @param string $defecto el valor por defecto que tomara $var si no se cumple la condicion
  * @return boolean
  */
 function validaHora(string &$var, string $defecto):bool {
@@ -111,17 +111,13 @@ function validaHora(string &$var, string $defecto):bool {
 /**
  * Funcion que comprueba que $var contiene un email correcto en el formato aaaaa@bbbb.ccc
  *
- * @param string $var el email que se pasa, se devuelve el email saneado (se le quitan los espacios
- *                    del principio y del final; si esta mal se le asigna $defecto)
- * @param string $defecto el email por defecto que tomara $var en caso de estar mal
+ * @param string $var el email que se pasa, se devuelve el email saneado
+ * @param string $defecto el valor por defecto que tomara $var si no se cumple la condicion
  * @return boolean true si todo esta correcto, false si no
  */
 function validaEmail(string &$var, string $defecto):bool {
- 
-    //saneo: quito los espacios del principio y del final
-    $var = trim($var);
- 
-    //comprueba el formato: caracteres@dominio(.subdominio)*.extension (extension de 2 o mas letras)
+
+    //comprueba que el formato es valido
     if (preg_match('/^[\w.+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/', $var)) {
         return true;
     }
@@ -135,13 +131,12 @@ function validaEmail(string &$var, string $defecto):bool {
  * Funcion que comprueba que $var contiene una cadena de longitud maxima $longitud
  *
  * @param string $var la cadena que se pasa (si no cumple la condicion se le asigna $defecto)
- * @param integer $longitud la longitud maxima (en caracteres) que puede tener $var
- * @param string $defecto el valor por defecto que tomara $var en caso de estar mal
+ * @param integer $longitud la longitud maxima que puede tener $var
+ * @param string $defecto el valor por defecto que tomara $var si no se cumple la condicion
  * @return boolean true si todo esta correcto, false si no
  */
 function validaCadena(string &$var, int $longitud, string $defecto):bool {
- 
-    //se usa mb_strlen para contar caracteres y no bytes (ñ, tildes, etc.)
+
     if (mb_strlen($var) <= $longitud) {
         return true;
     }
@@ -154,8 +149,8 @@ function validaCadena(string &$var, int $longitud, string $defecto):bool {
  * Funcion que comprueba que $var cumple con la expresion regular $expresion
  *
  * @param string $var la cadena que se comprueba (si no cumple la condicion se le asigna $defecto)
- * @param string $expresion la expresion regular (con sus delimitadores) que tiene que cumplir $var
- * @param string $defecto el valor por defecto que tomara $var en caso de estar mal
+ * @param string $expresion la expresion regular que tiene que cumplir $var
+ * @param string $defecto el valor por defecto que tomara $var si no se cumple la condicion
  * @return boolean true si todo esta correcto, false si no
  */
 function validaExpresion(string &$var, string $expresion, string $defecto):bool {
@@ -169,21 +164,21 @@ function validaExpresion(string &$var, string $expresion, string $defecto):bool 
 }
  
 /**
- * Funcion que comprueba que $var es igual a uno de los elementos de $posibles ($tipo=1)
- * o a una de las claves de $posibles ($tipo=2)
+ * Funcion que comprueba que $var es igual a uno de los elementos de $posibles (1)
+ * o a una de las claves de $posibles (2)
  *
  * @param mixed $var el valor que se comprueba
  * @param array $posibles array con los valores (o las claves) permitidos
- * @param integer $tipo 1 se busca entre los valores, 2 se busca entre las claves
- * @return boolean true si esta en el rango, false si no
+ * @param integer $tipo si es 1 se busca entre los valores, y si es 2 se busca entre las claves
+ * @return boolean true si esta en el rango, si no false
  */
 function validaRango(mixed $var, array $posibles, int $tipo=1):bool {
  
     if ($tipo == 2) {
-        //las claves de un array solo pueden ser enteros o cadenas
+        //las claves de un array solo pueden ser o enteros o cadenas
         return (is_int($var) || is_string($var)) && array_key_exists($var, $posibles);
     }
  
-    //comparacion estricta (mismo valor y mismo tipo)
+    //mismo valor y mismo tipo
     return in_array($var, $posibles, true);
 }
