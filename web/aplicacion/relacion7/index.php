@@ -34,3 +34,7 @@ function cuerpo()
 </main>
 <?php
 }
+
+function escribirAFichero(string $nombre, array $puntos) {
+
+}
