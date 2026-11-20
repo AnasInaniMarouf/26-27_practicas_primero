@@ -12,6 +12,8 @@ $barra=[
     ]
 ];
 
+
+
 //dibuja la plantilla de la vista
 inicioCabecera("Relacion 7");
 cabecera();
@@ -29,9 +31,34 @@ function cuerpo()
 ?>
 <main class="contenidoPrincipal">
 <?php
-
+formulario();
 ?>
 </main>
+<?php
+}
+
+function formulario() {
+?> 
+    <h3>Formulario</h3>
+    <p>Coordenada X: <input type="number" name=""></p>
+    <p>Coordenada Y: <input type="number" name=""></p>
+    <p>Color:
+        <select name="colores">
+            <?php
+                foreach(Punto::COLORES as $claveColor => $nombreColor) {
+                    ?><option value="<?php $claveColor ?>"><?php echo $nombreColor["nombre"] ?></option><?php
+                }
+            ?>
+        </select>
+        <br>
+        <p>Grosor:<br>
+        <?php
+            foreach(Punto::GROSORES as $claveGrosor => $nombreGrosor) {
+                ?><input type="radio" name="grosor" value="<?php $claveGrosor ?>"><?php echo $nombreGrosor ?><br><?php
+            }
+        ?>
+        </p>
+    </p>
 <?php
 }
 
