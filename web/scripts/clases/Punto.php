@@ -22,7 +22,15 @@ class Punto {
         if(!$this->setGrosor($grosor))  throw new Error("Error. El valor del grosor no es valido");
 
         //self::$Puntos[] = $this;
-        array_push(self::$Puntos, $this);
+        array_push(self::$Puntos, $this);   //añade el objeto creado al array de puntos
+    }
+
+    public function toStringSimple():string {
+        return $this->getX() . ";" . $this->getY() . ";" . $this->getColor() . ";" . $this->getGrosor();
+    }
+
+    public function __toString():string {
+        return "Punto-> X:" . $this->getX() . ", Y:" . $this->getY() . ", color: " . $this->getColor() . ", grosor: " . $this->getGrosor();
     }
 
     /*Getters y Setters*/
