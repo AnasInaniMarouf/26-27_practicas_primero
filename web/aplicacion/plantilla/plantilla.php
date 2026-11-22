@@ -53,7 +53,7 @@ function inicioCuerpo(string $cabecera, array $ubicacion = [])
 
             <header>
                 <h1 id="titulo">
-                    <a href="../../index.php"><img src="../../imagenes/wb.png"></img></a>
+                    <a href="../../index.php"><img src="../../imagenes/wb.png" id="puntoSeguro"></img></a>
                     <?php echo $cabecera; ?>
                 </h1>
             </header>
