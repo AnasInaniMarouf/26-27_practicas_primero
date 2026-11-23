@@ -70,14 +70,14 @@ function crearImagen(string $nombre, array $puntos): string {
     $rutaImagen .= "imagen_" . $nombre;
     $ruta = $_SERVER["DOCUMENT_ROOT"] . $rutaImagen;
 
-    $imagen = imagecreatetruecolor(400, 400);   //crea una imagen de 400x400
+    $imagen = imagecreatetruecolor(500, 500);   //crea una imagen de 500x500
 
     //colores para la imagen
     $blanco = imagecolorallocate($imagen, 255, 255, 255);
     $verde = imagecolorallocate($imagen, 0, 128, 128);
 
     imagefill($imagen, 0, 0, $blanco);  //rellena la imagen de blanco
-    imagerectangle($imagen, 0, 0, 399, 399, $verde);    //399x399 para que el borde tenga tamaño 1 (400 de la imagen menos 399)
+    imagerectangle($imagen, 0, 0, 499, 499, $verde);    //499x499 para que el borde tenga tamaño 1 (500 de la imagen menos 499)
 
     foreach($puntos as $punto) {
         $rgbPunto = Punto::COLORES[$punto->getColor()]["rgb"];  //array de rgb del color
@@ -112,10 +112,9 @@ function crearFicheroPuntos(Punto|array|null $punto = null, string $modo = "a"):
  * @param string $nombre
  * @param array|null $datos
  * @param string $modo  "a" para añadir nuevos datos, "w" para sobreescribir todo
- * @param bool $subir variable que controla la forma en la que se escribe un fichero
  * @return boolean
  */
-function escribirAFichero(string $nombre, array|null $datos, string $modo = "a", bool $subir = false): bool {
+function escribirAFichero(string $nombre, array|null $datos, string $modo = "a"): bool {
     $ruta = $_SERVER["DOCUMENT_ROOT"] . "/imagenes/puntos/";    //ruta donde se guardara el fichero
 
     //si no existe la ruta se crea
@@ -132,23 +131,10 @@ function escribirAFichero(string $nombre, array|null $datos, string $modo = "a",
         return false;
     }
 
-    if($subir) {
-        foreach($datos as $fila) {
-            $linea = "";
-
-            foreach($fila as $columna) {
-                $linea .= $columna . ", ";
-            }
-            $linea .= "\r\n";
-
-            fputs($fichero, $linea);    //se escribe en el fichero una linea
-        }
-
-    } else {
-        foreach($datos as $punto) {
-            fputs($fichero, $punto->toStringSimple() . "\r\n");
-        }
+    foreach($datos as $punto) {
+        fputs($fichero, $punto->toStringSimple() . "\r\n");
     }
+
     fclose($fichero);   //se cierra el fichero
 
     return true;

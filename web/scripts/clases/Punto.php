@@ -64,7 +64,7 @@ class Punto {
     }
 
     public function setColor(string $color): bool {
-        if (!self::COLORES[$color]) return false;   //si no existe el color en la constante
+        if (!isset(self::COLORES[$color])) return false;   //si no existe el color en la constante
 
         $this -> _color = $color;
         return true;
@@ -76,7 +76,7 @@ class Punto {
     }
 
     public function setGrosor(int $grosor): bool {
-        if (!self::GROSORES[$grosor]) return false;   //si no existe el grosor en la constante
+        if (!isset(self::GROSORES[$grosor])) return false;   //si no existe el grosor en la constante
 
         $this -> _grosor = $grosor;
         return true;

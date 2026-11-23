@@ -18,8 +18,8 @@ leerFicheroPuntos(nombreFicheroFormateado(".dat", "puntos_"));  //lee los puntos
 $datos = [
     "x" => 0,
     "y" => 0,
-    "color",
-    "grosor"
+    "color" => "",
+    "grosor" => ""
 ];
 
 $errores = [];
@@ -143,11 +143,7 @@ function formulario(array $datos, array $errores): void {
     </form>
     <div>
         <h3>Resumen de puntos</h3>
-        <textarea name="" id="" cols="50" rows="10"><?php 
-            foreach(Punto::$Puntos as $punto) {
-                echo $punto . PHP_EOL;
-            } ?>
-        </textarea>
+        <textarea name="" id="" cols="50" rows="10"><?php foreach(Punto::$Puntos as $punto) {echo $punto . PHP_EOL;}?></textarea>   <!--Lo he tendio que poner todo junto en una linea para que no cree espacios dentro-->
     </div>
     <form action="index.php" method="post" enctype="multipart/form-data">
         <div>
@@ -197,12 +193,12 @@ function validarFormulario(array &$datos, array &$errores):bool {
     $grosor = $_POST["grosor"] ?? null; //igual que el color
     
     //para que no haya negativos, y el 0 es porque si no se puede parsear es lo que devuelve intval(), asi sé que no es un numero
-    if($x <= 0) {
-        $errores["x"] = "La coordenada x tiene que ser un numero entero positivo";
+    if($x <= 0 || $x >= 500) {
+        $errores["x"] = "La coordenada x tiene que ser un numero entero positivo y menor a 500";
     }
 
-    if($y <= 0) {
-        $errores["y"] = "La coordenada y tiene que ser un numero entero positivo";
+    if($y <= 0 || $y >= 500) {
+        $errores["y"] = "La coordenada y tiene que ser un numero entero positivo y menor a 500";
     }
 
     //si no hay ninguno seleccionado, se le habra asignado null, asi se captura y se añade a errores
